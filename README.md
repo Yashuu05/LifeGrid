@@ -1,4 +1,4 @@
-# Project Overview Name: LifeGrid (Placeholder)
+# Project Overview Name: LifeGrid 
 
 ---
 
@@ -33,6 +33,8 @@
 ---
 
 ### Success Metrics Retention: 
-- Number of users who return to the site to add new milestones.Engagement: Average time spent viewing the grid versus setting goals.Viral Growth: Number of times users export and share their "Life Grid" snapshot on social media.
+- Number of users who return to the site to add new milestones.
+- Engagement: Average time spent viewing the grid versus setting goals.
+- Viral Growth: Number of times users export and share their "Life Grid" snapshot on social media.
 
 ---

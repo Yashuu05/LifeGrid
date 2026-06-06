@@ -11,6 +11,9 @@ export const useStore = create(
       // Goals State: { weekIndex: "Goal description" }
       goals: {},
 
+      // Bucket List State
+      bucketList: [],
+
       // Modal State
       isModalOpen: false,
       selectedWeek: null,
@@ -31,12 +34,29 @@ export const useStore = create(
         return { goals: newGoals };
       }),
 
+      addBucketListItem: (item) => set((state) => ({
+        bucketList: [...state.bucketList, { ...item, id: Date.now().toString(), createdAt: Date.now() }]
+      })),
+
+      updateBucketListItem: (id, updates) => set((state) => ({
+        bucketList: state.bucketList.map(item => item.id === id ? { ...item, ...updates } : item)
+      })),
+
+      deleteBucketListItem: (id) => set((state) => ({
+        bucketList: state.bucketList.filter(item => item.id !== id)
+      })),
+
       openModal: (weekIndex) => set({ isModalOpen: true, selectedWeek: weekIndex }),
       closeModal: () => set({ isModalOpen: false, selectedWeek: null }),
     }),
     {
       name: 'lifegrid-storage',
-      partialize: (state) => ({ dob: state.dob, lifespan: state.lifespan, goals: state.goals }), // Only persist these fields
+      partialize: (state) => ({ 
+        dob: state.dob, 
+        lifespan: state.lifespan, 
+        goals: state.goals,
+        bucketList: state.bucketList
+      }),
     }
   )
 );
